@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Vibe Music Player</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Vibe Music Player</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">首页</string>
+    <string name="menu_library">曲库</string>
+    <string name="menu_album">专辑</string>
+    <string name="menu_album_detail">专辑详情</string>
+    <string name="menu_artist">歌手</string>
+    <string name="menu_artist_detail">歌手详情</string>
+    <string name="menu_favorite">喜欢</string>
+    <string name="menu_song">歌曲播放</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_feedback">反馈</string>
+    <string name="menu_contact">联系我们</string>
+
+    <string name="logo">logo</string>
+    <string name="app_version">版本：1.0.0</string>
+    <string name="copyright">Copyright © 2024-现在 MusicPlayer.All Rights Reserved</string>
+    <string name="action_search">搜索</string>
+    <string name="search_hint">请输入歌名关键字</string>
+    <string name="song_name">歌名</string>
+    <string name="time">00:00</string>
+    <string name="singer">歌手</string>
+    <string name="album">专辑</string>
+    <string name="more">更多</string>
+    <string name="count">歌曲数量</string>
+
+    <string name="hotline_service">热线服务</string>
+    <string name="hotline_number">96163399</string>
+    <string name="call_hotline">拨打热线</string>
+
+    <string name="message_service">短信服务</string>
+    <string name="message_content">106803091688</string>
+    <string name="send_message">发送短信</string>
+
+    <string name="description">问题描述</string>
+    <string name="suggestion">请描述产品建议，或其他产品使用问题\n（如卡顿、白屏、闪退等）</string>
+    <string name="upload_image">上传图片</string>
+    <string name="submit">提交</string>
+    <string name="dark_mode">深色模式</string>
+</resources>

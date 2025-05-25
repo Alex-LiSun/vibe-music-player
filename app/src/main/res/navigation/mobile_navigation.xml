@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.vibemusicplayer.ui.fragment.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_library"
+        android:name="com.example.vibemusicplayer.ui.fragment.LibraryFragment"
+        android:label="@string/menu_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/nav_album"
+        android:name="com.example.vibemusicplayer.ui.fragment.AlbumFragment"
+        android:label="@string/menu_album"
+        tools:layout="@layout/fragment_album" />
+    <fragment
+        android:id="@+id/nav_artist"
+        android:name="com.example.vibemusicplayer.ui.fragment.ArtistFragment"
+        android:label="@string/menu_artist"
+        tools:layout="@layout/fragment_artist" />
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.example.vibemusicplayer.ui.fragment.FavoriteFragment"
+        android:label="@string/menu_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.vibemusicplayer.ui.fragment.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.vibemusicplayer.ui.fragment.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.vibemusicplayer.ui.fragment.FeedbackFragment"
+        android:label="@string/menu_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.vibemusicplayer.ui.fragment.ContactFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/nav_album_detail"
+        android:name="com.example.vibemusicplayer.ui.fragment.AlbumDetailFragment"
+        android:label="@string/menu_album_detail"
+        tools:layout="@layout/fragment_album_detail" />
+    <fragment
+        android:id="@+id/nav_artist_detail"
+        android:name="com.example.vibemusicplayer.ui.fragment.ArtistDetailFragment"
+        android:label="@string/menu_artist_detail"
+        tools:layout="@layout/fragment_artist_detail" />
+    <fragment
+        android:id="@+id/nav_song"
+        android:name="com.example.vibemusicplayer.ui.fragment.SongFragment"
+        android:label="@string/menu_song"
+        tools:layout="@layout/fragment_song" />
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.vibemusicplayer.ui.fragment.SearchFragment"
+        tools:layout="@layout/fragment_search" />
+</navigation>

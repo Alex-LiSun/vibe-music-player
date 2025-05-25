@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:paddingLeft="16dp"
+    android:paddingTop="8dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/item_song_imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/logo"
+        app:srcCompat="@drawable/nav_logo" />
+
+    <TextView
+        android:id="@+id/item_song_name"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/item_song_imageView"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/song_name"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/item_song_artist"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_song_name"
+        android:layout_toEndOf="@id/item_song_imageView"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/singer"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/item_song_album"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/item_song_artist"
+        android:layout_toEndOf="@+id/item_song_artist"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/album"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/item_song_time"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/item_song_album"
+        android:layout_toEndOf="@+id/item_song_album"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="@string/time"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/item_song_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/item_song_time"
+        android:clickable="true"
+        android:contentDescription="@string/more"
+        android:focusable="true"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_menu_moreoverflow" />
+</RelativeLayout>
