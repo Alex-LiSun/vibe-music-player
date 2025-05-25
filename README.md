@@ -37,8 +37,8 @@
 - **Android 版本**: 7.0 及以上
 - **开发环境**:
   - Android Studio Arctic Fox 或更高版本
-  - JDK 11 或更高版本
-  - Gradle 7.0 或更高版本
+  - JDK 17 或更高版本
+  - Gradle 8.0 或更高版本
 
 ## 安装与使用 🚀
 
