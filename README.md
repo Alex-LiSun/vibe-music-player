@@ -84,7 +84,7 @@ app/
 
 ## 项目演示 📺
 
-视频地址：[https://www.bilibili.com/video/******/]
+视频地址：[https://www.bilibili.com/video/BV1tXjVzGEvG/]
 
 ## 项目截图 📷
 
@@ -114,6 +114,7 @@ app/
     <td><img src="https://github.com/Alex-LiSun/vibe-music-player/blob/main/img/about.png" alt="关于界面" width="200"></td>
   </tr>
 </table>
+
 ## 贡献指南 ❤️
 
 欢迎提交 Issue 和 Pull Request 来帮助改进项目！
