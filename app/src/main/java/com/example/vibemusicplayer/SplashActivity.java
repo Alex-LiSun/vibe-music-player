@@ -4,9 +4,12 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
+import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -51,26 +54,45 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void checkAndRequestPermissions() {
-        String[] permissions = {
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        };
-
-        boolean allGranted = true;
-        for (String permission : permissions) {
-            if (ContextCompat.checkSelfPermission(this, permission) 
-                != PackageManager.PERMISSION_GRANTED) {
-                allGranted = false;
-                break;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Android 11 及以上，检测 MANAGE_EXTERNAL_STORAGE
+            if (android.os.Environment.isExternalStorageManager()) {
+                startMainActivityWithDelay();
+            } else {
+                Toast.makeText(this, "需要所有文件访问权限才能使用此应用", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.setData(Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+                // 可在 onResume 里再次检测权限
             }
-        }
-
-        if (allGranted) {
-            // 已有权限，延迟1秒后启动主Activity
-            startMainActivityWithDelay();
         } else {
-            // 请求权限
-            requestPermissionLauncher.launch(permissions);
+            // Android 10 及以下，继续原有逻辑
+            String[] permissions;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                permissions = new String[]{
+                        Manifest.permission.READ_MEDIA_AUDIO
+                };
+            } else {
+                permissions = new String[]{
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                };
+            }
+
+            boolean allGranted = true;
+            for (String permission : permissions) {
+                if (ContextCompat.checkSelfPermission(this, permission)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+
+            if (allGranted) {
+                startMainActivityWithDelay();
+            } else {
+                requestPermissionLauncher.launch(permissions);
+            }
         }
     }
 

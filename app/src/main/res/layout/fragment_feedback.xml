@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/description"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -37,8 +37,8 @@
 
             <EditText
                 android:id="@+id/feedback_editText"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
                 android:layout_margin="10dp"
                 android:background="@null"
                 android:gravity="top"
@@ -47,7 +47,7 @@
                 android:scrollbars="vertical"
                 android:textColor="?attr/colorOnSecondary"
                 android:textColorHint="@color/gray"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -58,10 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/feedback_question"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="280dp"
         android:text="@string/upload_image"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button_submit"
@@ -80,9 +80,8 @@
     <ImageView
         android:id="@+id/feedback_image"
         android:layout_width="115dp"
-        android:layout_height="230dp"
+        android:layout_height="200dp"
         android:layout_below="@id/feedback_add_image"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
         android:src="@drawable/ic_add_photo" />
 </RelativeLayout>

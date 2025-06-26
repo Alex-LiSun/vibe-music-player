@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/hotline_service"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         app:contentPadding="10dp">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
@@ -56,11 +56,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/icon_phone"
-                android:layout_marginStart="160dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/icon_phone"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/button_rounded_corners"
                 android:text="@string/call_hotline"
                 android:textSize="18sp"
@@ -77,7 +76,7 @@
         android:layout_marginTop="230dp"
         android:text="@string/message_service"
         android:textColor="?attr/colorOnSecondary"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -123,11 +122,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/icon_message"
-                    android:layout_marginStart="160dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_toEndOf="@id/icon_message"
+                    android:layout_alignParentEnd="true"
                     android:background="@drawable/button_rounded_corners"
                     android:text="@string/send_message"
                     android:textSize="18sp"
