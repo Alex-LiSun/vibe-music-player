@@ -43,8 +43,7 @@ public class SearchViewModel extends ViewModel {
 
                 // 获取封面
                 Uri albumArtUri = MusicMetadataHelper.getAlbumArtFromFile(context, filePath); // 使用文件路径获取封面
-
-                Song song = new Song(name, artist, album, formattedDuration, albumArtUri);
+                Song song = new Song(name, artist, album, formattedDuration, albumArtUri != null ? albumArtUri.toString() : null);
                 songs.add(song);
             } while (cursor.moveToNext());
 

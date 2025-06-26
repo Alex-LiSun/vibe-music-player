@@ -48,7 +48,7 @@ public class FavoriteViewModel extends ViewModel {
                     String album = cursor.getString(cursor.getColumnIndex("album"));
                     String duration = cursor.getString(cursor.getColumnIndex("duration"));
                     String uri = cursor.getString(cursor.getColumnIndex("uri"));
-                    Uri albumArtUri = (uri != null && !uri.isEmpty() && !"null".equals(uri)) ? Uri.parse(uri) : null;
+                    String albumArtUri = (uri != null && !uri.isEmpty() && !"null".equals(uri)) ? uri : null;
                     Song song = new Song(name, artist, album, duration, albumArtUri);
                     allFavorites.add(song);
                 } while (cursor.moveToNext());

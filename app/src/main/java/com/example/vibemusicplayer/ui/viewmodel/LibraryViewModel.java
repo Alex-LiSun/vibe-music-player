@@ -62,7 +62,7 @@ public class LibraryViewModel extends ViewModel {
                             (milliseconds % 60000) / 1000);
 
                     Uri albumArtUri = MusicMetadataHelper.getAlbumArtFromFile(context, filePath);
-                    Song song = new Song(name, artist, album, formattedDuration, albumArtUri);
+                    Song song = new Song(name, artist, album, formattedDuration, albumArtUri != null ? albumArtUri.toString() : null);
                     allSongs.add(song);
                 } while (cursor.moveToNext());
                 cursor.close();

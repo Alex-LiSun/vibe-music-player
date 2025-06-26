@@ -3,6 +3,7 @@ package com.example.vibemusicplayer.ui.adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,10 +60,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Album album = data.get(position);
 
+        String albumArtUriString = null;
         if (album != null) {
-            if (album.getAlbumArtUri() != null) {
+            albumArtUriString = album.getAlbumArtUri() != null ? album.getAlbumArtUri().toString() : null;
+            if (albumArtUriString != null && !albumArtUriString.isEmpty()) {
                 Glide.with(holder.itemView.getContext())
-                        .load(album.getAlbumArtUri())
+                        .load(Uri.parse(albumArtUriString))
                         .error(R.drawable.nav_logo) // 错误时的占位符
                         .into(holder.logo); // 将图片加载到 ImageView
             } else {
@@ -74,13 +77,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         }
 
         // 设置子项的点击事件
+        final String finalAlbumArtUriString = albumArtUriString;
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext(); // 获取点击 View 的上下文
                 NavController navController = Navigation.findNavController((Activity) context, R.id.nav_host_fragment_content_main);
                 Bundle bundle = new Bundle();
-                String logo = data.get(position).getAlbumArtUri() != null ? data.get(position).getAlbumArtUri().toString() : null;
+                String logo = finalAlbumArtUriString;
                 bundle.putString("logo", logo);
                 bundle.putString("album", data.get(position).getName());
                 navController.navigate(R.id.nav_album_detail, bundle);

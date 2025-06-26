@@ -68,9 +68,9 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
         Song song = data.get(position);
 
         if (song != null) {
-            if (song.getAlbumArtUri() != null) {
+            if (song.getAlbumArtUriString() != null && !song.getAlbumArtUriString().isEmpty()) {
                 Glide.with(holder.itemView.getContext())
-                        .load(song.getAlbumArtUri())
+                        .load(Uri.parse(song.getAlbumArtUriString()))
                         .apply(RequestOptions.bitmapTransform(new CircleCrop())) // 应用圆形裁剪
                         .error(R.drawable.nav_logo) // 错误时的占位符
                         .into(holder.logo); // 将图片加载到 ImageView
@@ -92,7 +92,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
                     Bundle bundle = new Bundle();
                     ArrayList<Song> safeData = new ArrayList<>();
                     for (Song s : data) {
-                        Uri art = s.getAlbumArtUri();
+                        String art = s.getAlbumArtUriString();
                         Song safeSong = new Song(
                             s.getName(),
                             s.getArtist(),

@@ -9,9 +9,9 @@ public class Song implements Serializable {
     private String artist;
     private String album;
     private String duration;
-    private Uri albumArtUri; // 封面图片的 URI
+    private String albumArtUri; // 封面图片的 URI 字符串
 
-    public Song(String name, String artist, String album, String duration, Uri albumArtUri) {
+    public Song(String name, String artist, String album, String duration, String albumArtUri) {
         this.name = name;
         this.artist = artist;
         this.album = album;
@@ -35,7 +35,7 @@ public class Song implements Serializable {
         return duration;
     }
 
-    public Uri getAlbumArtUri() {
+    public String getAlbumArtUriString() {
         return albumArtUri;
     }
 }

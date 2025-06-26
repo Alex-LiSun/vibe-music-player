@@ -70,14 +70,14 @@ public class SongFragment extends Fragment {
         position = getArguments().getInt("position");
         Song song = data.get(position);
 
-        Uri albumArtUri = song.getAlbumArtUri();
-        albumArt = albumArtUri != null ? albumArtUri.toString() : null;
+        String albumArtUriString = song.getAlbumArtUriString();
+        albumArt = albumArtUriString != null && !albumArtUriString.isEmpty() ? albumArtUriString : null;
         ImageView songImageView = view.findViewById(R.id.item_song_imageView);
 
         if (albumArt != null) {
             // 使用 Glide 加载图片
             Glide.with(view.getContext())
-                    .load(albumArt)
+                    .load(Uri.parse(albumArt))
                     .apply(RequestOptions.bitmapTransform(new CircleCrop())) // 应用圆形裁剪
                     .error(R.drawable.nav_logo) // 错误时的占位符
                     .into(songImageView); // 将图片加载到 bannerImageView
@@ -321,7 +321,7 @@ public class SongFragment extends Fragment {
         artist = song.getArtist();
         album = song.getAlbum();
         duration = song.getDuration();
-        albumArt = song.getAlbumArtUri() != null ? song.getAlbumArtUri().toString() : null;
+        albumArt = song.getAlbumArtUriString();
 
         textName.setText(name);
         textArtist.setText(artist);
@@ -336,7 +336,7 @@ public class SongFragment extends Fragment {
         if (albumArt != null) {
             // 使用 Glide 加载图片
             Glide.with(requireContext())
-                    .load(albumArt)
+                    .load(Uri.parse(albumArt))
                     .apply(RequestOptions.bitmapTransform(new CircleCrop())) // 应用圆形裁剪
                     .error(R.drawable.nav_logo) // 错误时的占位符
                     .into((ImageView) getView().findViewById(R.id.item_song_imageView)); // 将图片加载到 bannerImageView
@@ -465,7 +465,7 @@ public class SongFragment extends Fragment {
             String duration = cursor.getString(cursor.getColumnIndex("duration"));
             String uri = cursor.getString(cursor.getColumnIndex("uri"));
             Uri albumArtUri = Uri.parse(uri);
-            song = new Song(name, artist, album, duration, albumArtUri);
+            song = new Song(name, artist, album, duration, albumArtUri != null ? albumArtUri.toString() : null);
         }
         cursor.close();
         db.close();
