@@ -68,16 +68,17 @@ public class AlbumDetailAdapter extends RecyclerView.Adapter<AlbumDetailAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         if (albumName != null) {
+            Uri albumArtUri = null;
             if (albumArt != null) {
-                // 使用 Glide 加载图片
                 albumArtUri = Uri.parse(albumArt);
+            }
+            if (albumArtUri != null) {
                 Glide.with(holder.itemView.getContext())
                         .load(albumArtUri)
                         .apply(RequestOptions.bitmapTransform(new CircleCrop())) // 应用圆形裁剪
                         .error(R.drawable.nav_logo) // 错误时的占位符
                         .into(holder.logo); // 将图片加载到 songImageView
             } else {
-                // 如果 logo 为 null，则使用默认的占位符图像
                 holder.logo.setImageResource(R.drawable.nav_logo);
             }
 

@@ -80,7 +80,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                 Context context = v.getContext(); // 获取点击 View 的上下文
                 NavController navController = Navigation.findNavController((Activity) context, R.id.nav_host_fragment_content_main);
                 Bundle bundle = new Bundle();
-                bundle.putString("logo", data.get(position).getAlbumArtUri().toString());
+                String logo = data.get(position).getAlbumArtUri() != null ? data.get(position).getAlbumArtUri().toString() : null;
+                bundle.putString("logo", logo);
                 bundle.putString("album", data.get(position).getName());
                 navController.navigate(R.id.nav_album_detail, bundle);
             }

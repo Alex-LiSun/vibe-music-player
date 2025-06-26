@@ -3,6 +3,7 @@ package com.example.vibemusicplayer.ui.adapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,7 +85,19 @@ public class ArtistDetailAdapter extends RecyclerView.Adapter<ArtistDetailAdapte
                     Context context = v.getContext(); // 获取点击 View 的上下文
                     NavController navController = Navigation.findNavController((Activity) context, R.id.nav_host_fragment_content_main);
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("data", new ArrayList<>(data));
+                    ArrayList<Song> safeData = new ArrayList<>();
+                    for (Song s : data) {
+                        Uri art = s.getAlbumArtUri();
+                        Song safeSong = new Song(
+                            s.getName(),
+                            s.getArtist(),
+                            s.getAlbum(),
+                            s.getDuration(),
+                            art != null ? art : null
+                        );
+                        safeData.add(safeSong);
+                    }
+                    bundle.putSerializable("data", safeData);
                     bundle.putInt("position", position);
                     navController.navigate(R.id.nav_song, bundle);
                 }
