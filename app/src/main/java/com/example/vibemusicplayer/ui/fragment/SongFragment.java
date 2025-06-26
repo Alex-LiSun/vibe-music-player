@@ -321,7 +321,7 @@ public class SongFragment extends Fragment {
         artist = song.getArtist();
         album = song.getAlbum();
         duration = song.getDuration();
-        albumArt = song.getAlbumArtUri().toString();
+        albumArt = song.getAlbumArtUri() != null ? song.getAlbumArtUri().toString() : null;
 
         textName.setText(name);
         textArtist.setText(artist);
