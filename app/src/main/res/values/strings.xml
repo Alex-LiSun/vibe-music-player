@@ -21,7 +21,7 @@
     <string name="menu_contact">联系我们</string>
 
     <string name="logo">logo</string>
-    <string name="app_version">版本：1.0.1</string>
+    <string name="app_version">版本：1.0.2</string>
     <string name="copyright">Copyright© 2024-2025 VibeMusic.All Rights Reserved</string>
     <string name="action_search">搜索</string>
     <string name="search_hint">请输入歌名关键字</string>

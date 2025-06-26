@@ -70,7 +70,8 @@ public class SongFragment extends Fragment {
         position = getArguments().getInt("position");
         Song song = data.get(position);
 
-        albumArt = song.getAlbumArtUri().toString();
+        Uri albumArtUri = song.getAlbumArtUri();
+        albumArt = albumArtUri != null ? albumArtUri.toString() : null;
         ImageView songImageView = view.findViewById(R.id.item_song_imageView);
 
         if (albumArt != null) {
